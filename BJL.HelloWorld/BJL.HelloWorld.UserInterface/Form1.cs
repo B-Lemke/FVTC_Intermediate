@@ -14,6 +14,7 @@ namespace BJL.HelloWorld.UserInterface
     {
         public Form1()
         {
+            //Adding in a comment
             InitializeComponent();
         }
     }
