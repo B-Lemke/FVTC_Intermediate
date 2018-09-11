@@ -65,6 +65,9 @@ namespace BJL.Review.UI
             lblStatus.ForeColor = Color.Black;
 
             double dblOutput;
+            string strInput = txtInput.Text;
+            dblOutput = DoMath(strInput);
+
             dblOutput = DoMath(txtInput.Text);
 
             lblResult.Text = dblOutput.ToString();
@@ -75,5 +78,59 @@ namespace BJL.Review.UI
         {
             lblResult.Text = string.Empty;
         }
+
+
+        private void btnByRefDisplay_Click(object sender, EventArgs e)
+        {
+
+            lblStatus.Text = string.Empty;
+            lblStatus.ForeColor = Color.Black;
+
+            
+            double dblSquared;
+            double dblSquareRoot;
+                                    
+            DoMath(txtInput.Text, out dblSquared, out dblSquareRoot);
+
+            lblResult.Text = dblSquared.ToString();
+
+
+        }
+
+
+        private void DoMath(string sInput, out double dblSquare, out double dblSqrt)
+        {
+            double dblInput;
+
+            try
+            {
+
+                if (double.TryParse(sInput, out dblInput))
+                {
+
+
+                    //Successful parse, do math
+                    dblSquare = Math.Pow(dblInput, 2);
+                    dblSqrt = Math.Sqrt(dblInput);
+                  
+                }
+                else
+                {
+                    throw new Exception("Input is not numeric, Try Again");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                lblStatus.Text = ex.Message;
+                lblStatus.ForeColor = Color.Red;
+                dblSquare = 0;
+                dblSqrt = 0;
+            }
+        }
+
+
+
     }
 }

@@ -37,6 +37,7 @@
             this.btnDisplay = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnByRefDisplay = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,9 +113,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 159);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 181);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(272, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(284, 22);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -123,13 +124,24 @@
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(0, 17);
             // 
+            // btnByRefDisplay
+            // 
+            this.btnByRefDisplay.Location = new System.Drawing.Point(18, 146);
+            this.btnByRefDisplay.Name = "btnByRefDisplay";
+            this.btnByRefDisplay.Size = new System.Drawing.Size(118, 23);
+            this.btnByRefDisplay.TabIndex = 8;
+            this.btnByRefDisplay.Text = "Display - By&Ref";
+            this.btnByRefDisplay.UseVisualStyleBackColor = true;
+            this.btnByRefDisplay.Click += new System.EventHandler(this.btnByRefDisplay_Click);
+            // 
             // frmReview
             // 
             this.AcceptButton = this.btnDisplay;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(272, 181);
+            this.ClientSize = new System.Drawing.Size(284, 203);
+            this.Controls.Add(this.btnByRefDisplay);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnDisplay);
             this.Controls.Add(this.btnExit);
@@ -158,6 +170,7 @@
         private System.Windows.Forms.Button btnDisplay;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
+        private System.Windows.Forms.Button btnByRefDisplay;
     }
 }
 
