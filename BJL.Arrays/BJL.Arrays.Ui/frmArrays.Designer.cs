@@ -37,14 +37,16 @@
             this.btnSortDesc = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnResize = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnCreate2d = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.lbxOutput = new System.Windows.Forms.ListBox();
             this.txtInput = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtUserInput = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCreateScores
@@ -140,23 +142,25 @@
             this.btnResize.UseVisualStyleBackColor = true;
             this.btnResize.Click += new System.EventHandler(this.btnResize_Click);
             // 
-            // button10
+            // btnSearch
             // 
-            this.button10.Location = new System.Drawing.Point(12, 363);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(154, 23);
-            this.button10.TabIndex = 9;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnSearch.Location = new System.Drawing.Point(12, 363);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(154, 23);
+            this.btnSearch.TabIndex = 9;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // button11
+            // btnCreate2d
             // 
-            this.button11.Location = new System.Drawing.Point(12, 402);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(154, 23);
-            this.button11.TabIndex = 10;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnCreate2d.Location = new System.Drawing.Point(12, 402);
+            this.btnCreate2d.Name = "btnCreate2d";
+            this.btnCreate2d.Size = new System.Drawing.Size(154, 23);
+            this.btnCreate2d.TabIndex = 10;
+            this.btnCreate2d.Text = "Create 2D";
+            this.btnCreate2d.UseVisualStyleBackColor = true;
+            this.btnCreate2d.Click += new System.EventHandler(this.btnCreate2d_Click);
             // 
             // button12
             // 
@@ -199,30 +203,48 @@
             this.lbxOutput.FormattingEnabled = true;
             this.lbxOutput.Location = new System.Drawing.Point(184, 12);
             this.lbxOutput.Name = "lbxOutput";
-            this.lbxOutput.Size = new System.Drawing.Size(337, 433);
+            this.lbxOutput.Size = new System.Drawing.Size(275, 433);
             this.lbxOutput.TabIndex = 15;
             // 
             // txtInput
             // 
-            this.txtInput.Location = new System.Drawing.Point(528, 12);
+            this.txtInput.Location = new System.Drawing.Point(480, 12);
             this.txtInput.Multiline = true;
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(319, 433);
+            this.txtInput.Size = new System.Drawing.Size(280, 433);
             this.txtInput.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(181, 454);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Input";
+            // 
+            // txtUserInput
+            // 
+            this.txtUserInput.Location = new System.Drawing.Point(218, 451);
+            this.txtUserInput.Name = "txtUserInput";
+            this.txtUserInput.Size = new System.Drawing.Size(241, 20);
+            this.txtUserInput.TabIndex = 19;
             // 
             // frmArrays
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 617);
+            this.ClientSize = new System.Drawing.Size(785, 602);
+            this.Controls.Add(this.txtUserInput);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtInput);
             this.Controls.Add(this.lbxOutput);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.btnCreate2d);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnResize);
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.btnSortDesc);
@@ -234,6 +256,7 @@
             this.Controls.Add(this.btnCreateScores);
             this.Name = "frmArrays";
             this.Text = "Arrays";
+            this.Load += new System.EventHandler(this.frmArrays_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,14 +273,16 @@
         private System.Windows.Forms.Button btnSortDesc;
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnResize;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnCreate2d;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.ListBox lbxOutput;
         private System.Windows.Forms.TextBox txtInput;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtUserInput;
     }
 }
 
