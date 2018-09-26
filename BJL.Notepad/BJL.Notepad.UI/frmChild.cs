@@ -30,7 +30,6 @@ namespace BJL.Notepad.UI
 
 
             this.BackColor = Color.FromArgb(r,g,b);
-            
         }
 
 

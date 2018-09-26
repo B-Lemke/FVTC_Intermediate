@@ -12,6 +12,7 @@ namespace BJL.Notepad.UI
 {
     public partial class frmParent : Form
     {
+        Random generator = new Random();
 
         public frmParent()
         {
@@ -86,9 +87,26 @@ namespace BJL.Notepad.UI
 
         private void makeNewChildForm()
         {
+
+
             frmChild newDocument = new frmChild(this.MdiChildren.Count() + 1);
             newDocument.MdiParent = this;
+
+            //random size
+
+            int width = generator.Next(100, 300);
+            int height = generator.Next(100, 300);
+            newDocument.Width = width;
+            newDocument.Height = height;
+
+            //set a random starting place
+            int x = generator.Next(0, this.Width - newDocument.Width - 40 );
+            int y = generator.Next(0, this.Height - newDocument.Height - (newDocument.Height / 2) - 30);
+            newDocument.StartPosition = FormStartPosition.Manual;
+            newDocument.Location = new Point(x, y);
+
             newDocument.Show();
+
         }
     }
 }
