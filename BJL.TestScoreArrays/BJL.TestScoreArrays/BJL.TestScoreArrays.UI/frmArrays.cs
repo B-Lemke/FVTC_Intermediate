@@ -48,7 +48,7 @@ namespace BJL.TestScoreArrays.UI
             try
             {
                 int newScore;
-
+                
                 if (int.TryParse(txtInputScore.Text, out newScore))
                 {
                     if (newScore >= 0 && newScore <= 10)
@@ -63,6 +63,13 @@ namespace BJL.TestScoreArrays.UI
                         lblStatus.Text = newScore.ToString() + " added to array at spot " + (index+1).ToString();
                         lblStatus.ForeColor = Color.Blue;
 
+
+                        //A new number was added, clear the list box to prevent old data from showing
+                        lstDisplayArray.Items.Clear();
+
+                        //Display message saying to redisplay the array to prevent confusion as to why the array disappeared. 
+                        lstDisplayArray.Items.Add("Array updated!");
+                        lstDisplayArray.Items.Add("Press Display Array to show =>");
                     }
                     else
                     {
@@ -80,7 +87,6 @@ namespace BJL.TestScoreArrays.UI
             }
             catch (Exception ex)
             {
-
                 lblStatus.ForeColor = Color.Red;
                 lblStatus.Text = ex.Message;
             }
@@ -100,7 +106,6 @@ namespace BJL.TestScoreArrays.UI
                 //Clear the list box of old data
                 lstDisplayArray.Items.Clear();
 
-                //Variable for the sum of the array
                 int sum = 0;
 
                 //loop through the array
