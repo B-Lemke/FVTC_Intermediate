@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BJL.Utilities.CustomExceptions;
 
 namespace BDF.ComputerWorld.BL
 {
@@ -13,7 +14,19 @@ namespace BDF.ComputerWorld.BL
         public int HardDriveSize
         {
             get { return hardDriveSize; }
-            set { hardDriveSize = value; }
+            set
+            {
+                if (value > 0)
+                {
+                    hardDriveSize = value;
+                }
+                else
+                {
+                    throw new BadHardDriveException(); //ex.Message = "Bad Hard Drive Size Value"
+
+                    throw new BadHardDriveException("Inaccurate HD Size");
+                }
+            }
         }
 
         private int ram;
@@ -23,7 +36,6 @@ namespace BDF.ComputerWorld.BL
             get { return ram; }
             set { ram = value; }
         }
-
 
     }
 

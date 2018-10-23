@@ -31,8 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvComputers = new System.Windows.Forms.DataGridView();
             this.btnLoadComputers = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnMakeComputer = new System.Windows.Forms.Button();
+            this.btnTestData = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -57,8 +57,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtEquipmentType = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputers)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +68,7 @@
             this.dgvComputers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComputers.Location = new System.Drawing.Point(144, 12);
             this.dgvComputers.Name = "dgvComputers";
+            this.dgvComputers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvComputers.Size = new System.Drawing.Size(675, 408);
             this.dgvComputers.TabIndex = 0;
             this.dgvComputers.SelectionChanged += new System.EventHandler(this.dgvComputers_SelectionChanged);
@@ -84,23 +83,25 @@
             this.btnLoadComputers.UseVisualStyleBackColor = true;
             this.btnLoadComputers.Click += new System.EventHandler(this.btnLoadComputers_Click);
             // 
-            // button1
+            // btnMakeComputer
             // 
-            this.button1.Location = new System.Drawing.Point(12, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMakeComputer.Location = new System.Drawing.Point(12, 43);
+            this.btnMakeComputer.Name = "btnMakeComputer";
+            this.btnMakeComputer.Size = new System.Drawing.Size(126, 23);
+            this.btnMakeComputer.TabIndex = 4;
+            this.btnMakeComputer.Text = "Make Computer";
+            this.btnMakeComputer.UseVisualStyleBackColor = true;
+            this.btnMakeComputer.Click += new System.EventHandler(this.btnMakeComputer_Click);
             // 
-            // button2
+            // btnTestData
             // 
-            this.button2.Location = new System.Drawing.Point(12, 74);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTestData.Location = new System.Drawing.Point(12, 74);
+            this.btnTestData.Name = "btnTestData";
+            this.btnTestData.Size = new System.Drawing.Size(126, 23);
+            this.btnTestData.TabIndex = 5;
+            this.btnTestData.Text = "Test Data";
+            this.btnTestData.UseVisualStyleBackColor = true;
+            this.btnTestData.Click += new System.EventHandler(this.btnTestData_Click);
             // 
             // button4
             // 
@@ -178,9 +179,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 716);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 580);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(831, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(824, 22);
             this.statusStrip1.TabIndex = 14;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -225,7 +226,7 @@
             // 
             // txtSerialNo
             // 
-            this.txtSerialNo.Location = new System.Drawing.Point(274, 508);
+            this.txtSerialNo.Location = new System.Drawing.Point(274, 505);
             this.txtSerialNo.Name = "txtSerialNo";
             this.txtSerialNo.Size = new System.Drawing.Size(150, 20);
             this.txtSerialNo.TabIndex = 20;
@@ -242,7 +243,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(274, 543);
+            this.txtPrice.Location = new System.Drawing.Point(274, 540);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(150, 20);
             this.txtPrice.TabIndex = 22;
@@ -259,15 +260,16 @@
             // 
             // txtHardDriveSize
             // 
-            this.txtHardDriveSize.Location = new System.Drawing.Point(588, 438);
+            this.txtHardDriveSize.Location = new System.Drawing.Point(588, 435);
             this.txtHardDriveSize.Name = "txtHardDriveSize";
             this.txtHardDriveSize.Size = new System.Drawing.Size(150, 20);
             this.txtHardDriveSize.TabIndex = 24;
+            this.txtHardDriveSize.TextChanged += new System.EventHandler(this.txtHardDriveSize_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(522, 441);
+            this.label5.Location = new System.Drawing.Point(522, 438);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 23;
@@ -276,7 +278,7 @@
             // 
             // txtRAM
             // 
-            this.txtRAM.Location = new System.Drawing.Point(588, 473);
+            this.txtRAM.Location = new System.Drawing.Point(588, 470);
             this.txtRAM.Name = "txtRAM";
             this.txtRAM.Size = new System.Drawing.Size(150, 20);
             this.txtRAM.TabIndex = 26;
@@ -284,7 +286,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(537, 476);
+            this.label6.Location = new System.Drawing.Point(537, 473);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 25;
@@ -293,7 +295,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(588, 508);
+            this.txtDescription.Location = new System.Drawing.Point(588, 505);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(150, 20);
             this.txtDescription.TabIndex = 28;
@@ -301,37 +303,18 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(508, 511);
+            this.label7.Location = new System.Drawing.Point(508, 508);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 13);
             this.label7.TabIndex = 27;
             this.label7.Text = "Description:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // txtEquipmentType
-            // 
-            this.txtEquipmentType.Location = new System.Drawing.Point(588, 543);
-            this.txtEquipmentType.Name = "txtEquipmentType";
-            this.txtEquipmentType.Size = new System.Drawing.Size(150, 20);
-            this.txtEquipmentType.TabIndex = 30;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(484, 546);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 13);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "Equipment Type:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // frmComputerWorld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 738);
-            this.Controls.Add(this.txtEquipmentType);
-            this.Controls.Add(this.label8);
+            this.ClientSize = new System.Drawing.Size(824, 602);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtRAM);
@@ -355,8 +338,8 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnTestData);
+            this.Controls.Add(this.btnMakeComputer);
             this.Controls.Add(this.btnLoadComputers);
             this.Controls.Add(this.dgvComputers);
             this.Name = "frmComputerWorld";
@@ -373,8 +356,8 @@
 
         private System.Windows.Forms.DataGridView dgvComputers;
         private System.Windows.Forms.Button btnLoadComputers;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMakeComputer;
+        private System.Windows.Forms.Button btnTestData;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
@@ -399,8 +382,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtEquipmentType;
-        private System.Windows.Forms.Label label8;
     }
 }
 

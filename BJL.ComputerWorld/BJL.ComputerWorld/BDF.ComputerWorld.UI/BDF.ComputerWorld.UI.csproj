@@ -83,6 +83,10 @@
       <Project>{bfc32b7c-f0cb-44f4-9659-70b442b3cb13}</Project>
       <Name>BDF.ComputerWorld.BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BJL.Utilities.CustomExceptions\BJL.Utilities.CustomExceptions.csproj">
+      <Project>{b872ef91-9815-4ca6-adfc-daa007952c91}</Project>
+      <Name>BJL.Utilities.CustomExceptions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
