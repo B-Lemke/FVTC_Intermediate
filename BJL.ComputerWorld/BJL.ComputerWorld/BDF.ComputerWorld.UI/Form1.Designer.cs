@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvComputers = new System.Windows.Forms.DataGridView();
             this.btnLoadComputers = new System.Windows.Forms.Button();
             this.btnMakeComputer = new System.Windows.Forms.Button();
@@ -37,8 +37,8 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnDeleteObject = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnWriteTypes = new System.Windows.Forms.Button();
+            this.btnGetTypes = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -66,8 +66,8 @@
             // 
             // dgvComputers
             // 
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dgvComputers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dgvComputers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvComputers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComputers.Location = new System.Drawing.Point(144, 12);
             this.dgvComputers.Name = "dgvComputers";
@@ -146,23 +146,25 @@
             this.btnDeleteObject.UseVisualStyleBackColor = true;
             this.btnDeleteObject.Click += new System.EventHandler(this.btnDeleteObject_Click);
             // 
-            // button8
+            // btnWriteTypes
             // 
-            this.button8.Location = new System.Drawing.Point(12, 229);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(126, 23);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnWriteTypes.Location = new System.Drawing.Point(12, 229);
+            this.btnWriteTypes.Name = "btnWriteTypes";
+            this.btnWriteTypes.Size = new System.Drawing.Size(126, 23);
+            this.btnWriteTypes.TabIndex = 10;
+            this.btnWriteTypes.Text = "Write Types";
+            this.btnWriteTypes.UseVisualStyleBackColor = true;
+            this.btnWriteTypes.Click += new System.EventHandler(this.btnWriteTypes_Click);
             // 
-            // button9
+            // btnGetTypes
             // 
-            this.button9.Location = new System.Drawing.Point(12, 260);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(126, 23);
-            this.button9.TabIndex = 11;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnGetTypes.Location = new System.Drawing.Point(12, 260);
+            this.btnGetTypes.Name = "btnGetTypes";
+            this.btnGetTypes.Size = new System.Drawing.Size(126, 23);
+            this.btnGetTypes.TabIndex = 11;
+            this.btnGetTypes.Text = "Get Types";
+            this.btnGetTypes.UseVisualStyleBackColor = true;
+            this.btnGetTypes.Click += new System.EventHandler(this.btnGetTypes_Click);
             // 
             // button10
             // 
@@ -368,8 +370,8 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.btnGetTypes);
+            this.Controls.Add(this.btnWriteTypes);
             this.Controls.Add(this.btnDeleteObject);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -399,8 +401,8 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnDeleteObject;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnWriteTypes;
+        private System.Windows.Forms.Button btnGetTypes;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.StatusStrip statusStrip1;

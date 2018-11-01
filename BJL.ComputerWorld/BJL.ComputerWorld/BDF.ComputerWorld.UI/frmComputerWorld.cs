@@ -16,7 +16,8 @@ namespace BDF.ComputerWorld.UI
     {
         //Store computers in a modular variable that is a ComputerList
         ComputerList computerList;
-        
+        EquipmentTypeList equipmentTypeList;
+
         public frmComputerWorld()
         {
             InitializeComponent();
@@ -144,14 +145,28 @@ namespace BDF.ComputerWorld.UI
 
         private void frmComputerWorld_Load(object sender, EventArgs e)
         {
-            // Populate the cboEquipmentTypes
 
+            equipmentTypeList = new EquipmentTypeList();
+
+            // Populate the cboEquipmentTypes
             var types = Enum.GetNames(typeof(EquipmentType.Types));
 
+            int id = 0;
             foreach (var type in types)
             {
                 string name = Enum.Parse(typeof(EquipmentType.Types), type).ToString();
                 cboEquipmentType.Items.Add(name);
+
+                
+                EquipmentType equipmentType = new EquipmentType();
+                //set the properties
+                equipmentType.Description = name;
+                equipmentType.Id = (EquipmentType.Types)id;
+
+                //Add to the equipment type list
+                equipmentTypeList.Add(equipmentType);
+
+                id++;
             }
         }
 
@@ -276,6 +291,40 @@ namespace BDF.ComputerWorld.UI
                 Rebind();
 
 
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.Message;
+                lblStatus.ForeColor = Color.Red;
+            }
+        }
+
+        private void btnWriteTypes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblStatus.Text = string.Empty;
+                lblStatus.ForeColor = Color.Blue;
+
+                equipmentTypeList.SaveFile();
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.Message;
+                lblStatus.ForeColor = Color.Red;
+            }
+        }
+
+        private void btnGetTypes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblStatus.Text = string.Empty;
+                lblStatus.ForeColor = Color.Blue;
+
+                equipmentTypeList = new EquipmentTypeList();
+                equipmentTypeList.Load();
+                lblStatus.Text = "Loaded " + equipmentTypeList.Count + " types.....";
             }
             catch (Exception ex)
             {
