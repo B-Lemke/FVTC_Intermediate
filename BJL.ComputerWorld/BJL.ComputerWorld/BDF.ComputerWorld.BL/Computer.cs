@@ -37,6 +37,14 @@ namespace BDF.ComputerWorld.BL
             set { ram = value; }
         }
 
+        private SoftwareList softwareList;
+
+        public SoftwareList SoftwareList
+        {
+            get { return softwareList; }
+            set { softwareList = value; }
+        }
+
     }
 
     public class ComputerList : List<Computer>
@@ -59,7 +67,10 @@ namespace BDF.ComputerWorld.BL
             computer1.HardDriveSize = 1024;
             computer1.SerialNo = "xxx-xx-xx1a";
             computer1.Description = "My shiny new computer";
-            computer1.EquipmentType = 2;
+            computer1.EquipmentType = EquipmentType.Types.Server;
+
+            computer1.SoftwareList = new SoftwareList();
+            computer1.SoftwareList.Seed();
 
             this.Add(computer1);
 
@@ -73,7 +84,7 @@ namespace BDF.ComputerWorld.BL
             computer2.HardDriveSize = 256;
             computer2.SerialNo = "xxx-xx-xx2b";
             computer2.Description = "Crappy small computer";
-            computer2.EquipmentType = 3;
+            computer2.EquipmentType = EquipmentType.Types.Tablet;
 
             this.Add(computer2);
         }

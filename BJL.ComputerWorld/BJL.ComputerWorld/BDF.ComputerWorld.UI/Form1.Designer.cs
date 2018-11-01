@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvComputers = new System.Windows.Forms.DataGridView();
             this.btnLoadComputers = new System.Windows.Forms.Button();
             this.btnMakeComputer = new System.Windows.Forms.Button();
             this.btnTestData = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnDeleteObject = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -57,14 +57,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.cboEquipmentType = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lbxSoftware = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputers)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvComputers
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dgvComputers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dgvComputers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvComputers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComputers.Location = new System.Drawing.Point(144, 12);
             this.dgvComputers.Name = "dgvComputers";
@@ -103,41 +106,45 @@
             this.btnTestData.UseVisualStyleBackColor = true;
             this.btnTestData.Click += new System.EventHandler(this.btnTestData_Click);
             // 
-            // button4
+            // btnInsert
             // 
-            this.button4.Location = new System.Drawing.Point(12, 105);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(126, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnInsert.Location = new System.Drawing.Point(12, 105);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(126, 23);
+            this.btnInsert.TabIndex = 6;
+            this.btnInsert.Text = "Insert";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
-            // button5
+            // btnUpdate
             // 
-            this.button5.Location = new System.Drawing.Point(12, 136);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(126, 23);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(12, 136);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(126, 23);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // button6
+            // btnDelete
             // 
-            this.button6.Location = new System.Drawing.Point(12, 167);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(126, 23);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(12, 167);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(126, 23);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // button7
+            // btnDeleteObject
             // 
-            this.button7.Location = new System.Drawing.Point(12, 198);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(126, 23);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnDeleteObject.Location = new System.Drawing.Point(12, 198);
+            this.btnDeleteObject.Name = "btnDeleteObject";
+            this.btnDeleteObject.Size = new System.Drawing.Size(126, 23);
+            this.btnDeleteObject.TabIndex = 9;
+            this.btnDeleteObject.Text = "Delete Object";
+            this.btnDeleteObject.UseVisualStyleBackColor = true;
+            this.btnDeleteObject.Click += new System.EventHandler(this.btnDeleteObject_Click);
             // 
             // button8
             // 
@@ -179,9 +186,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 580);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 579);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(824, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(834, 22);
             this.statusStrip1.TabIndex = 14;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -310,11 +317,40 @@
             this.label7.Text = "Description:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // cboEquipmentType
+            // 
+            this.cboEquipmentType.FormattingEnabled = true;
+            this.cboEquipmentType.Location = new System.Drawing.Point(588, 539);
+            this.cboEquipmentType.Name = "cboEquipmentType";
+            this.cboEquipmentType.Size = new System.Drawing.Size(150, 21);
+            this.cboEquipmentType.TabIndex = 29;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(484, 542);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 13);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Equipment Type:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbxSoftware
+            // 
+            this.lbxSoftware.FormattingEnabled = true;
+            this.lbxSoftware.Location = new System.Drawing.Point(12, 438);
+            this.lbxSoftware.Name = "lbxSoftware";
+            this.lbxSoftware.Size = new System.Drawing.Size(152, 134);
+            this.lbxSoftware.TabIndex = 31;
+            // 
             // frmComputerWorld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 602);
+            this.ClientSize = new System.Drawing.Size(834, 601);
+            this.Controls.Add(this.lbxSoftware);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cboEquipmentType);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtRAM);
@@ -334,16 +370,17 @@
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnDeleteObject);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnTestData);
             this.Controls.Add(this.btnMakeComputer);
             this.Controls.Add(this.btnLoadComputers);
             this.Controls.Add(this.dgvComputers);
             this.Name = "frmComputerWorld";
             this.Text = "Computer World";
+            this.Load += new System.EventHandler(this.frmComputerWorld_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputers)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -358,10 +395,10 @@
         private System.Windows.Forms.Button btnLoadComputers;
         private System.Windows.Forms.Button btnMakeComputer;
         private System.Windows.Forms.Button btnTestData;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnDeleteObject;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
@@ -382,6 +419,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboEquipmentType;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListBox lbxSoftware;
     }
 }
 

@@ -32,9 +32,9 @@ namespace BDF.ComputerWorld.BL
             set { description = value; }
         }
 
-        private int equipmentType;
+        private EquipmentType.Types equipmentType;
 
-        public int EquipmentType
+        public EquipmentType.Types EquipmentType
         {
             get { return equipmentType; }
             set { equipmentType = value; }
@@ -63,6 +63,7 @@ namespace BDF.ComputerWorld.BL
             get { return model; }
             set { model = value; }
         }
+
 
     }
 }

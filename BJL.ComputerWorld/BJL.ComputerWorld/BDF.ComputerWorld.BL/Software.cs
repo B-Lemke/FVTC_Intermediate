@@ -48,5 +48,37 @@ namespace BDF.ComputerWorld.BL
             set { price = value; }
         }
 
+        public Software()
+        {
+
+        }
+
+        public Software(int id,
+                        string name,
+                        string description,
+                        double price)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            Price = price;
+        }
+
+    }
+
+    public class SoftwareList : List<Software>
+    {
+        public void Seed()
+        {
+            Software software = new Software(1, "Word", "Microsoft Word", 9.99);
+            this.Add(software);
+
+            Software software2 = new Software(2, "Fortnite", "Epic Fortnite", 19.99);
+            this.Add(software2);
+
+            Software software3 = new Software(3, "Counter-Strike", "Valve CS", 49.99);
+            this.Add(software3);
+
+        }
     }
 }
