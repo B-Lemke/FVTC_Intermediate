@@ -39,8 +39,8 @@
             this.btnDeleteObject = new System.Windows.Forms.Button();
             this.btnWriteTypes = new System.Windows.Forms.Button();
             this.btnGetTypes = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnSaveComputersXML = new System.Windows.Forms.Button();
+            this.btnLoadComputersXML = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
@@ -166,23 +166,25 @@
             this.btnGetTypes.UseVisualStyleBackColor = true;
             this.btnGetTypes.Click += new System.EventHandler(this.btnGetTypes_Click);
             // 
-            // button10
+            // btnSaveComputersXML
             // 
-            this.button10.Location = new System.Drawing.Point(12, 291);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(126, 23);
-            this.button10.TabIndex = 12;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnSaveComputersXML.Location = new System.Drawing.Point(12, 291);
+            this.btnSaveComputersXML.Name = "btnSaveComputersXML";
+            this.btnSaveComputersXML.Size = new System.Drawing.Size(126, 23);
+            this.btnSaveComputersXML.TabIndex = 12;
+            this.btnSaveComputersXML.Text = "Save Computers XML";
+            this.btnSaveComputersXML.UseVisualStyleBackColor = true;
+            this.btnSaveComputersXML.Click += new System.EventHandler(this.btnSaveComputersXML_Click);
             // 
-            // button11
+            // btnLoadComputersXML
             // 
-            this.button11.Location = new System.Drawing.Point(12, 322);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(126, 23);
-            this.button11.TabIndex = 13;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnLoadComputersXML.Location = new System.Drawing.Point(12, 322);
+            this.btnLoadComputersXML.Name = "btnLoadComputersXML";
+            this.btnLoadComputersXML.Size = new System.Drawing.Size(126, 23);
+            this.btnLoadComputersXML.TabIndex = 13;
+            this.btnLoadComputersXML.Text = "Load Computers XML";
+            this.btnLoadComputersXML.UseVisualStyleBackColor = true;
+            this.btnLoadComputersXML.Click += new System.EventHandler(this.btnLoadComputersXML_Click);
             // 
             // statusStrip1
             // 
@@ -368,8 +370,8 @@
             this.Controls.Add(this.txtManufacturer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
+            this.Controls.Add(this.btnLoadComputersXML);
+            this.Controls.Add(this.btnSaveComputersXML);
             this.Controls.Add(this.btnGetTypes);
             this.Controls.Add(this.btnWriteTypes);
             this.Controls.Add(this.btnDeleteObject);
@@ -403,8 +405,8 @@
         private System.Windows.Forms.Button btnDeleteObject;
         private System.Windows.Forms.Button btnWriteTypes;
         private System.Windows.Forms.Button btnGetTypes;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnSaveComputersXML;
+        private System.Windows.Forms.Button btnLoadComputersXML;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.Label label1;

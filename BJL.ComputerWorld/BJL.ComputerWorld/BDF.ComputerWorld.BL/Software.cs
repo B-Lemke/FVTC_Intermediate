@@ -68,17 +68,21 @@ namespace BDF.ComputerWorld.BL
 
     public class SoftwareList : List<Software>
     {
-        public void Seed()
+        public void Seed(int id)
         {
-            Software software = new Software(1, "Word", "Microsoft Word", 9.99);
-            this.Add(software);
+            if (id == 1)
+            {
+                Software software = new Software(1, "Word", "Microsoft Word", 9.99);
+                this.Add(software);
+            }
+            else
+            {
+                Software software2 = new Software(2, "Fortnite", "Epic Fortnite", 19.99);
+                this.Add(software2);
 
-            Software software2 = new Software(2, "Fortnite", "Epic Fortnite", 19.99);
-            this.Add(software2);
-
-            Software software3 = new Software(3, "Counter-Strike", "Valve CS", 49.99);
-            this.Add(software3);
-
+                Software software3 = new Software(3, "Counter-Strike", "Valve CS", 49.99);
+                this.Add(software3);
+            }
         }
     }
 }

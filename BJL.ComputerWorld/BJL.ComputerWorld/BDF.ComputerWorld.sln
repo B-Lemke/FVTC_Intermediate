@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BJL.ComputerWorld.BL.Test",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BJL.ComputerWorld.PL", "BJL.ComputerWorld.PL\BJL.ComputerWorld.PL.csproj", "{6F292A33-B97E-469D-9266-90A86C6F7EE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BJL.ComputerWorld.Interface", "BJL.ComputerWorld.Interface\BJL.ComputerWorld.Interface.csproj", "{A1C1EE53-AC29-4B69-B389-861E684A0B27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6F292A33-B97E-469D-9266-90A86C6F7EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F292A33-B97E-469D-9266-90A86C6F7EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F292A33-B97E-469D-9266-90A86C6F7EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1C1EE53-AC29-4B69-B389-861E684A0B27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1C1EE53-AC29-4B69-B389-861E684A0B27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1C1EE53-AC29-4B69-B389-861E684A0B27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1C1EE53-AC29-4B69-B389-861E684A0B27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

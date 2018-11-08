@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BJL.Utilities.CustomExceptions;
+using BJL.ComputerWorld.PL;
+using System.Xml.Serialization;
+using System.IO;
+using BJL.ComputerWorld.Interface;
 
 namespace BDF.ComputerWorld.BL
 {
-    public class Computer : Equipment
+    public class Computer : Equipment, IComputer
     {
         private int hardDriveSize;
 
@@ -45,6 +49,15 @@ namespace BDF.ComputerWorld.BL
             set { softwareList = value; }
         }
 
+        public bool Insert()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Update(string userid)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class ComputerList : List<Computer>
@@ -70,7 +83,7 @@ namespace BDF.ComputerWorld.BL
             computer1.EquipmentType = EquipmentType.Types.Server;
 
             computer1.SoftwareList = new SoftwareList();
-            computer1.SoftwareList.Seed();
+            computer1.SoftwareList.Seed(computer1.Id);
 
             this.Add(computer1);
 
@@ -86,7 +99,68 @@ namespace BDF.ComputerWorld.BL
             computer2.Description = "Crappy small computer";
             computer2.EquipmentType = EquipmentType.Types.Tablet;
 
+
+            computer2.SoftwareList = new SoftwareList();
+            computer2.SoftwareList.Seed(computer2.Id);
+
             this.Add(computer2);
         }
+
+
+        public void Load()
+        {
+            try
+            {
+                FileIO fileIO = new FileIO();
+
+                //Set the file name
+                fileIO.FileName = "computers.xml";
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Computer>));
+                TextReader tr = new StreamReader(fileIO.FileName);
+                this.AddRange((List<Computer>)serializer.Deserialize(tr));
+
+                tr.Close();
+                tr = null;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+        }
+
+        public void Save()
+        {
+            try
+            {
+                FileIO fileIO = new FileIO();
+
+                //Set the file name
+                fileIO.FileName = "computers.xml";
+
+                //Delete the file if it exists
+                fileIO.Delete();
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Computer>));
+                TextWriter tw = new StreamWriter(fileIO.FileName);
+                serializer.Serialize(tw, this);
+
+                tw.Close();
+                tw = null;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+
+
     }
+
+
+
 }

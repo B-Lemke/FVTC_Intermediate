@@ -184,7 +184,7 @@ namespace BDF.ComputerWorld.UI
                 computer.Description = txtDescription.Text;
 
                 computer.EquipmentType = (EquipmentType.Types)cboEquipmentType.SelectedIndex;
-
+                
                 computer.HardDriveSize = Convert.ToInt32(txtHardDriveSize.Text);
                 computer.Manufacturer = txtManufacturer.Text;
                 computer.SerialNo = txtSerialNo.Text;
@@ -193,7 +193,16 @@ namespace BDF.ComputerWorld.UI
                 computer.Price = Convert.ToDouble(txtPrice.Text);
 
                 if (computerList == null)
+                {
                     computerList = new ComputerList();
+                    computer.Id = 3;
+                }
+                else
+                {
+                    computer.Id = computerList.Count + 1;
+                }
+
+                
 
                 computerList.Add(computer);
 
@@ -325,6 +334,45 @@ namespace BDF.ComputerWorld.UI
                 equipmentTypeList = new EquipmentTypeList();
                 equipmentTypeList.Load();
                 lblStatus.Text = "Loaded " + equipmentTypeList.Count + " types.....";
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.Message;
+                lblStatus.ForeColor = Color.Red;
+            }
+        }
+
+        private void btnSaveComputersXML_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblStatus.Text = string.Empty;
+                lblStatus.ForeColor = Color.Blue;
+
+                computerList.Save();
+                lblStatus.Text = "Saved " + computerList.Count + " computers...";
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.Message;
+                lblStatus.ForeColor = Color.Red;
+            }
+
+        }
+
+        private void btnLoadComputersXML_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblStatus.Text = string.Empty;
+                lblStatus.ForeColor = Color.Blue;
+
+                computerList = new ComputerList();
+
+                computerList.Load();
+                lblStatus.Text = "Loaded " + computerList.Count + " computers...";
+
+                Rebind();
             }
             catch (Exception ex)
             {
