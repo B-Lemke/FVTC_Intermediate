@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BJL.ComputerWorld.PL", "BJL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BJL.ComputerWorld.Interface", "BJL.ComputerWorld.Interface\BJL.ComputerWorld.Interface.csproj", "{A1C1EE53-AC29-4B69-B389-861E684A0B27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BJL.ComputerWorld.ConsoleApp", "BJL.ComputerWorld.ConsoleApp\BJL.ComputerWorld.ConsoleApp.csproj", "{82DE391D-0A24-436A-97FB-A111BD256384}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BJL.ComputerWorld.DB", "BJL.ComputerWorld.DB\BJL.ComputerWorld.DB.sqlproj", "{B8D923CD-CD71-4090-9744-B398022037CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,16 @@ Global
 		{A1C1EE53-AC29-4B69-B389-861E684A0B27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1C1EE53-AC29-4B69-B389-861E684A0B27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1C1EE53-AC29-4B69-B389-861E684A0B27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82DE391D-0A24-436A-97FB-A111BD256384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82DE391D-0A24-436A-97FB-A111BD256384}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82DE391D-0A24-436A-97FB-A111BD256384}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82DE391D-0A24-436A-97FB-A111BD256384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D923CD-CD71-4090-9744-B398022037CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D923CD-CD71-4090-9744-B398022037CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D923CD-CD71-4090-9744-B398022037CB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B8D923CD-CD71-4090-9744-B398022037CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D923CD-CD71-4090-9744-B398022037CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D923CD-CD71-4090-9744-B398022037CB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

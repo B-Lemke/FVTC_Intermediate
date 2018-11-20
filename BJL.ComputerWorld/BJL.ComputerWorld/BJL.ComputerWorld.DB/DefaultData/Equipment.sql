@@ -1,0 +1,2 @@
+﻿INSERT INTO tblEquipment VALUES (1, 'XXXX-XXX-001A', 'Dell', 'What a Computer', '4000A', 480.99, 1 );
+INSERT INTO tblEquipment VALUES (2, 'XXXX-XXX-002B', 'HP', 'A laptop this time, oooh', '600C', 850.40, 2 );
