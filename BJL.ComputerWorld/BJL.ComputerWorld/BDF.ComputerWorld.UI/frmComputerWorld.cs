@@ -380,5 +380,48 @@ namespace BDF.ComputerWorld.UI
                 lblStatus.ForeColor = Color.Red;
             }
         }
+
+        private void btnLoadCompDb_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblStatus.Text = string.Empty;
+                lblStatus.ForeColor = Color.Blue;
+
+                computerList = new ComputerList();
+
+                computerList.Loaddb();
+                lblStatus.Text = "Loaded " + computerList.Count + " computers...";
+
+                Rebind();
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.Message;
+                lblStatus.ForeColor = Color.Red;
+            }
+        }
+
+        private void btnLoadSoftwareDb_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblStatus.Text = string.Empty;
+                lblStatus.ForeColor = Color.Blue;
+
+                SoftwareList softwareList = new SoftwareList();
+
+                softwareList.Load();
+                lblStatus.Text = "Loaded " + softwareList.Count + " softwares...";
+
+                dgvComputers.DataSource = null;
+                dgvComputers.DataSource = softwareList;
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.Message;
+                lblStatus.ForeColor = Color.Red;
+            }
+        }
     }
 }

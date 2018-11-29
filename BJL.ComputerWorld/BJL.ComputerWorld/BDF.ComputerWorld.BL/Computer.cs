@@ -8,9 +8,12 @@ using BJL.ComputerWorld.PL;
 using System.Xml.Serialization;
 using System.IO;
 using BJL.ComputerWorld.Interface;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace BDF.ComputerWorld.BL
 {
+
     public class Computer : Equipment, IComputer
     {
         private int hardDriveSize;
@@ -155,6 +158,43 @@ namespace BDF.ComputerWorld.BL
                 throw e;
             }
 
+        }
+
+        public void Loaddb()
+        {
+            try
+            {
+                Database db = new Database(Properties.Settings.Default.ConnStr);
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "SELECT * FROM tblEquipment";
+
+                DataTable computers = new DataTable();
+                
+                //retrieve the data
+                computers = db.Select(cmd);
+
+                foreach(DataRow dr in computers.Rows)
+                {
+                    //Make a computer
+                    Computer computer = new Computer();
+
+                    //Set the property values of the computer from the data row
+                    computer.Description = dr["Description"].ToString();
+                    computer.Id = Convert.ToInt32(dr["Id"]);
+                    computer.Manufacturer = dr["Manufacturer"].ToString();
+                    computer.Model = dr["Model"].ToString();
+                    computer.SerialNo = dr["SerialNo"].ToString();
+                    computer.Price = Convert.ToDouble(dr["Price"]);
+                    computer.EquipmentType = (EquipmentType.Types)(dr["EquipmentTypeID"]);
+
+                    //add computer to the list
+                    this.Add(computer);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
 

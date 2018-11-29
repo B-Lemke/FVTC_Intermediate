@@ -1,5 +1,8 @@
-﻿using System;
+﻿using BJL.ComputerWorld.PL;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +51,14 @@ namespace BDF.ComputerWorld.BL
             set { price = value; }
         }
 
+        private int equipmentId;
+
+        public int EquipmentID
+        {
+            get { return equipmentId; }
+            set { equipmentId = value; }
+        }
+
         public Software()
         {
 
@@ -84,5 +95,36 @@ namespace BDF.ComputerWorld.BL
                 this.Add(software3);
             }
         }
+
+
+        public void Load()
+        {
+            Database db = new Database(Properties.Settings.Default.ConnStr);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM tblSoftware";
+
+            DataTable softwares = new DataTable();
+            softwares = db.Select(cmd);
+
+            foreach(DataRow dr in softwares.Rows)
+            {
+                //Make software
+                Software software = new Software();
+
+                //Set properties
+                software.Description = dr["Description"].ToString();
+                software.Id = Convert.ToInt32(dr["Id"]);
+                software.Name = dr["Name"].ToString();
+                software.Price = Convert.ToDouble(dr["Price"]);
+                software.Size = Convert.ToInt32(dr["Size"]);
+                software.EquipmentID = Convert.ToInt32(dr["EquipmentID"]);
+
+                //Add to the list
+                this.Add(software);
+            }
+
+        }
+
+
     }
 }

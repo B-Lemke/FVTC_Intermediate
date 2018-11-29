@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvComputers = new System.Windows.Forms.DataGridView();
             this.btnLoadComputers = new System.Windows.Forms.Button();
             this.btnMakeComputer = new System.Windows.Forms.Button();
@@ -60,14 +60,16 @@
             this.cboEquipmentType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lbxSoftware = new System.Windows.Forms.ListBox();
+            this.btnLoadCompDb = new System.Windows.Forms.Button();
+            this.btnLoadSoftwareDb = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputers)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvComputers
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.dgvComputers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dgvComputers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvComputers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComputers.Location = new System.Drawing.Point(144, 12);
             this.dgvComputers.Name = "dgvComputers";
@@ -178,7 +180,7 @@
             // 
             // btnLoadComputersXML
             // 
-            this.btnLoadComputersXML.Location = new System.Drawing.Point(12, 322);
+            this.btnLoadComputersXML.Location = new System.Drawing.Point(12, 320);
             this.btnLoadComputersXML.Name = "btnLoadComputersXML";
             this.btnLoadComputersXML.Size = new System.Drawing.Size(126, 23);
             this.btnLoadComputersXML.TabIndex = 13;
@@ -347,11 +349,33 @@
             this.lbxSoftware.Size = new System.Drawing.Size(152, 134);
             this.lbxSoftware.TabIndex = 31;
             // 
+            // btnLoadCompDb
+            // 
+            this.btnLoadCompDb.Location = new System.Drawing.Point(12, 349);
+            this.btnLoadCompDb.Name = "btnLoadCompDb";
+            this.btnLoadCompDb.Size = new System.Drawing.Size(126, 23);
+            this.btnLoadCompDb.TabIndex = 32;
+            this.btnLoadCompDb.Text = "Load Computers DB";
+            this.btnLoadCompDb.UseVisualStyleBackColor = true;
+            this.btnLoadCompDb.Click += new System.EventHandler(this.btnLoadCompDb_Click);
+            // 
+            // btnLoadSoftwareDb
+            // 
+            this.btnLoadSoftwareDb.Location = new System.Drawing.Point(12, 378);
+            this.btnLoadSoftwareDb.Name = "btnLoadSoftwareDb";
+            this.btnLoadSoftwareDb.Size = new System.Drawing.Size(126, 23);
+            this.btnLoadSoftwareDb.TabIndex = 33;
+            this.btnLoadSoftwareDb.Text = "Load Software DB";
+            this.btnLoadSoftwareDb.UseVisualStyleBackColor = true;
+            this.btnLoadSoftwareDb.Click += new System.EventHandler(this.btnLoadSoftwareDb_Click);
+            // 
             // frmComputerWorld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 601);
+            this.Controls.Add(this.btnLoadSoftwareDb);
+            this.Controls.Add(this.btnLoadCompDb);
             this.Controls.Add(this.lbxSoftware);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cboEquipmentType);
@@ -426,6 +450,8 @@
         private System.Windows.Forms.ComboBox cboEquipmentType;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox lbxSoftware;
+        private System.Windows.Forms.Button btnLoadCompDb;
+        private System.Windows.Forms.Button btnLoadSoftwareDb;
     }
 }
 
