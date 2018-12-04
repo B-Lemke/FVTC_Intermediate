@@ -59,6 +59,7 @@ namespace BDF.ComputerWorld.UI
 
                 cboEquipmentType.SelectedIndex = (int)computer.EquipmentType;
 
+
                 lbxSoftware.DataSource = null;
                 lbxSoftware.DataSource = computer.SoftwareList;
                 lbxSoftware.DisplayMember = "Name";
@@ -132,7 +133,7 @@ namespace BDF.ComputerWorld.UI
             txtModel.Text = "Wow, it's made";
             txtPrice.Text = "69.99";
             txtRAM.Text = "8";
-            txtSerialNo.Text = "xxx-xx-xx3c";
+            txtSerialNo.Text = "XXXX-XXX-003C";
             cboEquipmentType.SelectedIndex = 2;
         }
 
@@ -205,6 +206,8 @@ namespace BDF.ComputerWorld.UI
                 
 
                 computerList.Add(computer);
+
+                
 
                 Rebind();
 
@@ -402,21 +405,155 @@ namespace BDF.ComputerWorld.UI
             }
         }
 
-        private void btnLoadSoftwareDb_Click(object sender, EventArgs e)
+        private void btnInsertComputerDB_Click(object sender, EventArgs e)
         {
             try
             {
                 lblStatus.Text = string.Empty;
                 lblStatus.ForeColor = Color.Blue;
 
-                SoftwareList softwareList = new SoftwareList();
+                // Creating a new computer
+                Computer computer = new Computer();
 
-                softwareList.Load();
-                lblStatus.Text = "Loaded " + softwareList.Count + " softwares...";
+                // Set the properties from the screen.
+                computer.Description = txtDescription.Text;
 
-                dgvComputers.DataSource = null;
-                dgvComputers.DataSource = softwareList;
+                computer.EquipmentType = (EquipmentType.Types)cboEquipmentType.SelectedIndex;
+
+                computer.HardDriveSize = Convert.ToInt32(txtHardDriveSize.Text);
+                computer.Manufacturer = txtManufacturer.Text;
+                computer.SerialNo = txtSerialNo.Text;
+                computer.RAM = Convert.ToInt32(txtRAM.Text);
+                computer.Model = txtModel.Text;
+                computer.Price = Convert.ToDouble(txtPrice.Text);
+
+                if (computerList == null)
+                {
+                    computerList = new ComputerList();
+                    computer.Id = 3;
+                }
+                else
+                {
+                    computer.Id = computerList.Count + 1;
+                }
+            
+               
+                computerList.Add(computer);
+
+                //Add to the database
+                if (computer.Insert())
+                {
+                    lblStatus.Text = "Record Inserted";
+                }
+                else
+                {
+                    lblStatus.Text = "Insert Failed";
+                }
+
+                Rebind();
             }
+            catch (BadHardDriveException ex)
+            {
+                lblStatus.Text = ex.Message;
+                lblStatus.ForeColor = Color.Red;
+                txtHardDriveSize.Focus();
+                txtHardDriveSize.SelectAll();
+                txtHardDriveSize.BackColor = Color.LightYellow;
+            }
+
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.Message;
+                lblStatus.ForeColor = Color.Red;
+            }
+        }
+
+        private void btnUpdateDB_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblStatus.Text = string.Empty;
+                lblStatus.ForeColor = Color.Blue;
+
+                // Get the current computer
+                Computer computer = computerList[dgvComputers.CurrentRow.Index];
+
+                // Set the properties from the screen.
+                computer.Description = txtDescription.Text;
+
+                computer.EquipmentType = (EquipmentType.Types)cboEquipmentType.SelectedIndex;
+
+                computer.HardDriveSize = Convert.ToInt32(txtHardDriveSize.Text);
+                computer.Manufacturer = txtManufacturer.Text;
+                computer.SerialNo = txtSerialNo.Text;
+                computer.RAM = Convert.ToInt32(txtRAM.Text);
+                computer.Model = txtModel.Text;
+                computer.Price = Convert.ToDouble(txtPrice.Text);
+
+                int result = computer.Update("UserID");
+
+                //Add to the database
+                if (result > 0)
+                {
+                    lblStatus.Text = "Record Updated";
+                }
+                else
+                {
+                    lblStatus.Text = "Update Failed";
+                }
+
+                Rebind();
+            }
+            catch (BadHardDriveException ex)
+            {
+                lblStatus.Text = ex.Message;
+                lblStatus.ForeColor = Color.Red;
+                txtHardDriveSize.Focus();
+                txtHardDriveSize.SelectAll();
+                txtHardDriveSize.BackColor = Color.LightYellow;
+            }
+
+            catch (Exception ex)
+            {
+                lblStatus.Text = ex.Message;
+                lblStatus.ForeColor = Color.Red;
+            }
+        }
+
+        private void btnDeleteComputerDB_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblStatus.Text = string.Empty;
+                lblStatus.ForeColor = Color.Blue;
+
+                // Creating a new computer
+                Computer computer = computerList[dgvComputers.CurrentRow.Index];
+
+                int result = computer.Delete();
+
+                //Add to the database
+                if (result > 0)
+                {
+                    computerList.Remove(computer);
+                    lblStatus.Text = "Record Deleted";
+                }
+                else
+                {
+                    lblStatus.Text = "Delete Failed";
+                }
+
+                Rebind();
+            }
+            catch (BadHardDriveException ex)
+            {
+                lblStatus.Text = ex.Message;
+                lblStatus.ForeColor = Color.Red;
+                txtHardDriveSize.Focus();
+                txtHardDriveSize.SelectAll();
+                txtHardDriveSize.BackColor = Color.LightYellow;
+            }
+
             catch (Exception ex)
             {
                 lblStatus.Text = ex.Message;

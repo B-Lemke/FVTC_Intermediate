@@ -61,7 +61,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lbxSoftware = new System.Windows.Forms.ListBox();
             this.btnLoadCompDb = new System.Windows.Forms.Button();
-            this.btnLoadSoftwareDb = new System.Windows.Forms.Button();
+            this.btnInsertComputerDB = new System.Windows.Forms.Button();
+            this.btnUpdateDB = new System.Windows.Forms.Button();
+            this.btnDeleteComputerDB = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComputers)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -206,7 +208,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(185, 438);
+            this.label1.Location = new System.Drawing.Point(303, 442);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 15;
@@ -215,14 +217,14 @@
             // 
             // txtManufacturer
             // 
-            this.txtManufacturer.Location = new System.Drawing.Point(274, 435);
+            this.txtManufacturer.Location = new System.Drawing.Point(392, 439);
             this.txtManufacturer.Name = "txtManufacturer";
             this.txtManufacturer.Size = new System.Drawing.Size(150, 20);
             this.txtManufacturer.TabIndex = 16;
             // 
             // txtModel
             // 
-            this.txtModel.Location = new System.Drawing.Point(274, 470);
+            this.txtModel.Location = new System.Drawing.Point(392, 474);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(150, 20);
             this.txtModel.TabIndex = 18;
@@ -230,7 +232,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(219, 473);
+            this.label2.Location = new System.Drawing.Point(337, 477);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 17;
@@ -239,7 +241,7 @@
             // 
             // txtSerialNo
             // 
-            this.txtSerialNo.Location = new System.Drawing.Point(274, 505);
+            this.txtSerialNo.Location = new System.Drawing.Point(392, 509);
             this.txtSerialNo.Name = "txtSerialNo";
             this.txtSerialNo.Size = new System.Drawing.Size(150, 20);
             this.txtSerialNo.TabIndex = 20;
@@ -247,7 +249,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(202, 508);
+            this.label3.Location = new System.Drawing.Point(320, 512);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 19;
@@ -256,7 +258,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(274, 540);
+            this.txtPrice.Location = new System.Drawing.Point(392, 544);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(150, 20);
             this.txtPrice.TabIndex = 22;
@@ -264,7 +266,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(224, 543);
+            this.label4.Location = new System.Drawing.Point(342, 547);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 21;
@@ -273,7 +275,7 @@
             // 
             // txtHardDriveSize
             // 
-            this.txtHardDriveSize.Location = new System.Drawing.Point(588, 435);
+            this.txtHardDriveSize.Location = new System.Drawing.Point(662, 439);
             this.txtHardDriveSize.Name = "txtHardDriveSize";
             this.txtHardDriveSize.Size = new System.Drawing.Size(150, 20);
             this.txtHardDriveSize.TabIndex = 24;
@@ -282,7 +284,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(522, 438);
+            this.label5.Location = new System.Drawing.Point(596, 442);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 23;
@@ -291,7 +293,7 @@
             // 
             // txtRAM
             // 
-            this.txtRAM.Location = new System.Drawing.Point(588, 470);
+            this.txtRAM.Location = new System.Drawing.Point(662, 474);
             this.txtRAM.Name = "txtRAM";
             this.txtRAM.Size = new System.Drawing.Size(150, 20);
             this.txtRAM.TabIndex = 26;
@@ -299,7 +301,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(537, 473);
+            this.label6.Location = new System.Drawing.Point(611, 477);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 13);
             this.label6.TabIndex = 25;
@@ -308,7 +310,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(588, 505);
+            this.txtDescription.Location = new System.Drawing.Point(662, 509);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(150, 20);
             this.txtDescription.TabIndex = 28;
@@ -316,7 +318,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(508, 508);
+            this.label7.Location = new System.Drawing.Point(582, 512);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 13);
             this.label7.TabIndex = 27;
@@ -326,7 +328,7 @@
             // cboEquipmentType
             // 
             this.cboEquipmentType.FormattingEnabled = true;
-            this.cboEquipmentType.Location = new System.Drawing.Point(588, 539);
+            this.cboEquipmentType.Location = new System.Drawing.Point(662, 543);
             this.cboEquipmentType.Name = "cboEquipmentType";
             this.cboEquipmentType.Size = new System.Drawing.Size(150, 21);
             this.cboEquipmentType.TabIndex = 29;
@@ -334,7 +336,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(484, 542);
+            this.label8.Location = new System.Drawing.Point(558, 546);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 13);
             this.label8.TabIndex = 30;
@@ -344,7 +346,7 @@
             // lbxSoftware
             // 
             this.lbxSoftware.FormattingEnabled = true;
-            this.lbxSoftware.Location = new System.Drawing.Point(12, 438);
+            this.lbxSoftware.Location = new System.Drawing.Point(145, 439);
             this.lbxSoftware.Name = "lbxSoftware";
             this.lbxSoftware.Size = new System.Drawing.Size(152, 134);
             this.lbxSoftware.TabIndex = 31;
@@ -359,22 +361,44 @@
             this.btnLoadCompDb.UseVisualStyleBackColor = true;
             this.btnLoadCompDb.Click += new System.EventHandler(this.btnLoadCompDb_Click);
             // 
-            // btnLoadSoftwareDb
+            // btnInsertComputerDB
             // 
-            this.btnLoadSoftwareDb.Location = new System.Drawing.Point(12, 378);
-            this.btnLoadSoftwareDb.Name = "btnLoadSoftwareDb";
-            this.btnLoadSoftwareDb.Size = new System.Drawing.Size(126, 23);
-            this.btnLoadSoftwareDb.TabIndex = 33;
-            this.btnLoadSoftwareDb.Text = "Load Software DB";
-            this.btnLoadSoftwareDb.UseVisualStyleBackColor = true;
-            this.btnLoadSoftwareDb.Click += new System.EventHandler(this.btnLoadSoftwareDb_Click);
+            this.btnInsertComputerDB.Location = new System.Drawing.Point(12, 378);
+            this.btnInsertComputerDB.Name = "btnInsertComputerDB";
+            this.btnInsertComputerDB.Size = new System.Drawing.Size(126, 23);
+            this.btnInsertComputerDB.TabIndex = 33;
+            this.btnInsertComputerDB.Text = "Insert Computer DB";
+            this.btnInsertComputerDB.UseVisualStyleBackColor = true;
+            this.btnInsertComputerDB.Click += new System.EventHandler(this.btnInsertComputerDB_Click);
+            // 
+            // btnUpdateDB
+            // 
+            this.btnUpdateDB.Location = new System.Drawing.Point(12, 407);
+            this.btnUpdateDB.Name = "btnUpdateDB";
+            this.btnUpdateDB.Size = new System.Drawing.Size(126, 23);
+            this.btnUpdateDB.TabIndex = 34;
+            this.btnUpdateDB.Text = "Update Computer DB";
+            this.btnUpdateDB.UseVisualStyleBackColor = true;
+            this.btnUpdateDB.Click += new System.EventHandler(this.btnUpdateDB_Click);
+            // 
+            // btnDeleteComputerDB
+            // 
+            this.btnDeleteComputerDB.Location = new System.Drawing.Point(12, 436);
+            this.btnDeleteComputerDB.Name = "btnDeleteComputerDB";
+            this.btnDeleteComputerDB.Size = new System.Drawing.Size(126, 23);
+            this.btnDeleteComputerDB.TabIndex = 35;
+            this.btnDeleteComputerDB.Text = "Delete Computer DB";
+            this.btnDeleteComputerDB.UseVisualStyleBackColor = true;
+            this.btnDeleteComputerDB.Click += new System.EventHandler(this.btnDeleteComputerDB_Click);
             // 
             // frmComputerWorld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 601);
-            this.Controls.Add(this.btnLoadSoftwareDb);
+            this.Controls.Add(this.btnDeleteComputerDB);
+            this.Controls.Add(this.btnUpdateDB);
+            this.Controls.Add(this.btnInsertComputerDB);
             this.Controls.Add(this.btnLoadCompDb);
             this.Controls.Add(this.lbxSoftware);
             this.Controls.Add(this.label8);
@@ -451,7 +475,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListBox lbxSoftware;
         private System.Windows.Forms.Button btnLoadCompDb;
-        private System.Windows.Forms.Button btnLoadSoftwareDb;
+        private System.Windows.Forms.Button btnInsertComputerDB;
+        private System.Windows.Forms.Button btnUpdateDB;
+        private System.Windows.Forms.Button btnDeleteComputerDB;
     }
 }
 

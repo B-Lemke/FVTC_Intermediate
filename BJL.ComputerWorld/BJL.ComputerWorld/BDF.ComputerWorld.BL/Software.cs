@@ -97,11 +97,11 @@ namespace BDF.ComputerWorld.BL
         }
 
 
-        public void Load()
+        public void Load(int computerID)
         {
             Database db = new Database(Properties.Settings.Default.ConnStr);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT * FROM tblSoftware";
+            cmd.CommandText = "SELECT * FROM tblSoftware WHERE EquipmentID = " + computerID;
 
             DataTable softwares = new DataTable();
             softwares = db.Select(cmd);

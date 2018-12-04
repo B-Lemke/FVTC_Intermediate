@@ -75,6 +75,8 @@ namespace BJL.ComputerWorld.PL
                     //execute query
                     int iRowsAffected = cmd.ExecuteNonQuery();
 
+                    Close();
+
                     //return rows effected
                     return iRowsAffected;
                 }

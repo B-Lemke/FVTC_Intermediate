@@ -54,12 +54,113 @@ namespace BDF.ComputerWorld.BL
 
         public bool Insert()
         {
-            throw new NotImplementedException();
+            try
+            {
+                //Open the DB connection
+                Database db = new Database(Properties.Settings.Default.ConnStr);
+                SqlCommand cmd = new SqlCommand();
+
+                //Paramaterized sql statement, used for security
+                string sql = "INSERT INTO tblEquipment (Id, Manufacturer, SerialNo, Price, Model, Description, EquipmentTypeID) " +
+                    " VALUES (@Id, @Manufacturer, @SerialNo, @Price, @Model, @Description, @EquipmentTypeID) ";
+
+                cmd.CommandText = sql;
+
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@Manufacturer", Manufacturer);
+                cmd.Parameters.AddWithValue("@SerialNo", SerialNo);
+                cmd.Parameters.AddWithValue("@Price", Price);
+                cmd.Parameters.AddWithValue("@Model", Model);
+                cmd.Parameters.AddWithValue("@Description", Description);
+                cmd.Parameters.AddWithValue("@EquipmentTypeID", (int)EquipmentType);
+
+                //Place to put the result of how it went
+                int result;
+
+                result = db.Insert(cmd);
+
+                db = null;
+
+                //ternary operator
+                return (result == 0 ? false : true); 
+
+            }
+            catch (Exception ex) 
+            {
+                throw ex;
+            }
         }
+
+        public int Delete()
+        {
+            try
+            {
+                Database db = new Database(Properties.Settings.Default.ConnStr);
+                SqlCommand cmd = new SqlCommand();
+
+                string sql = "DELETE FROM tblEquipment WHERE Id = @Id";
+
+                cmd.CommandText = sql;
+
+                cmd.Parameters.AddWithValue("@Id", Id);
+
+
+                int result = db.Delete(cmd);
+
+                db = null;
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
 
         public int Update(string userid)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Database db = new Database(Properties.Settings.Default.ConnStr);
+                SqlCommand cmd = new SqlCommand();
+
+                //Paramaterized sql statement, used for security
+                string sql = "UPDATE tblEquipment " +
+                    "SET Manufacturer = @Manufacturer, " +
+                    "SerialNo = @SerialNo, " +
+                    "Price = @Price, " +
+                    "Model = @Model, " +
+                    "Description =  @Description, " +
+                    "EquipmentTypeID = @EquipmentTypeID " +
+                    "WHERE Id = @Id";
+
+                cmd.CommandText = sql;
+
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@Manufacturer", Manufacturer);
+                cmd.Parameters.AddWithValue("@SerialNo", SerialNo);
+                cmd.Parameters.AddWithValue("@Price", Price);
+                cmd.Parameters.AddWithValue("@Model", Model);
+                cmd.Parameters.AddWithValue("@Description", Description);
+                cmd.Parameters.AddWithValue("@EquipmentTypeID", (int)EquipmentType);
+
+                //Place to put the result of how it went
+                int result;
+
+                result = db.Update(cmd);
+
+                db = null;
+
+                //ternary operator
+                return (result);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 
@@ -186,6 +287,11 @@ namespace BDF.ComputerWorld.BL
                     computer.SerialNo = dr["SerialNo"].ToString();
                     computer.Price = Convert.ToDouble(dr["Price"]);
                     computer.EquipmentType = (EquipmentType.Types)(dr["EquipmentTypeID"]);
+
+                    //Go get computer software from DB
+                    computer.SoftwareList = new SoftwareList(); //Need this line!!
+                    computer.SoftwareList.Load(computer.Id);
+
 
                     //add computer to the list
                     this.Add(computer);
